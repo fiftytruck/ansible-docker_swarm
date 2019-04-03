@@ -174,7 +174,7 @@
   shell: >
     docker node inspect --format
     '{% raw %}{{ range $k, $v := .Spec.Labels }}{{ $k }}={{ $v }}{{ "\n" }}{{ end }}{% endraw %}'
-    {{ item }}
+    self
   register: docker_swarm_labels_result
   when: >
     inventory_hostname == docker_swarm__run_manager
